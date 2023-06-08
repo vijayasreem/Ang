@@ -1,0 +1,38 @@
+﻿<form [formGroup]="configureGithubForm" (ngSubmit)="onSubmit()" novalidate>
+  <div>
+    <label for="username">GitHub Username:</label>
+    <input type="text" formControlName="username" id="username">
+    <div *ngIf="configureGithubForm.controls['username'].invalid && configureGithubForm.controls['username'].touched">
+      <span *ngIf="configureGithubForm.controls['username'].errors.required">Username is required</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="password">GitHub Password:</label>
+    <input type="password" formControlName="password" id="password">
+    <div *ngIf="configureGithubForm.controls['password'].invalid && configureGithubForm.controls['password'].touched">
+      <span *ngIf="configureGithubForm.controls['password'].errors.required">Password is required</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="url">GitHub URL:</label>
+    <input type="text" formControlName="url" id="url">
+    <div *ngIf="configureGithubForm.controls['url'].invalid && configureGithubForm.controls['url'].touched">
+      <span *ngIf="configureGithubForm.controls['url'].errors.required">URL is required</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="repository">GitHub Repository:</label>
+    <input type="text" formControlName="repository" id="repository">
+    <div *ngIf="configureGithubForm.controls['repository'].invalid && configureGithubForm.controls['repository'].touched">
+      <span *ngIf="configureGithubForm.controls['repository'].errors.required">Repository is required</span>
+    </div>
+  </div>
+
+  <div>
+    <button type="submit" [disabled]="configureGithubForm.invalid">Save</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>
